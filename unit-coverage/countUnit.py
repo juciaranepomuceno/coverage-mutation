@@ -2,6 +2,7 @@ import fnmatch
 import os
 import parseUnitReport
 import parseLayerName
+import updateSheet
 
 class CountUnit():
 
@@ -26,6 +27,9 @@ class CountUnit():
                     total_branch_total += int(branch_total)
 
                     parseLayerName.parsePath(root,layerNumber)
+                    updateSheet.updateSheetUnit(layerNumber,
+                                                lines_covered,lines_total,
+                                                branch_covered, branch_total)
                     layerNumber+=1
 
 

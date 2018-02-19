@@ -5,8 +5,8 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="connect-googledrive" exported="" />
-    <orderEntry type="module" module-name="common" />
+    <orderEntry type="module" module-name="connect-googledrive" />
+    <orderEntry type="module" module-name="mutation-counter" />
     <orderEntry type="module" module-name="mutation-inspec" />
     <orderEntry type="module" module-name="search-reports" />
     <orderEntry type="module" module-name="unit-coverage" />

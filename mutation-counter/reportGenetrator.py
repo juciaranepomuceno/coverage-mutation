@@ -43,7 +43,6 @@ class GenerateReport:
         format_all_mutants_percent.set_font_color('blue')
         format_all_mutants_percent.set_num_format('0.00%')
 
-
         worksheet.write('A3', 'Mutants by type', format_headline)
         worksheet.write('B3', 'Total Mutants', format_headline)
         worksheet.write('C3', 'Total Mutants Killed', format_headline)
@@ -51,9 +50,9 @@ class GenerateReport:
         worksheet.write('E3', '% Mutants Killed', format_headline)
         worksheet.write('F3', '% Mutants survived or not covered', format_headline)
 
-        worksheet.write('A4', 'ALL MUTANTS',format_all_mutants)
-        worksheet.write('B4', totalMutants,format_all_mutants)
-        worksheet.write('C4', totalMutantsKilled,format_all_mutants)
+        worksheet.write('A4', 'ALL MUTANTS', format_all_mutants)
+        worksheet.write('B4', totalMutants, format_all_mutants)
+        worksheet.write('C4', totalMutantsKilled, format_all_mutants)
         worksheet.write_formula('E4', '=C4/B4', format_all_mutants_percent)
         worksheet.write_formula('F4', '=1-E4', format_all_mutants_percent)
 
@@ -102,16 +101,16 @@ class GenerateReport:
         report_mutants.close()
 
         return totalMutants, \
-        totalMutantsKilled, \
-        mutantReturnValsMutator, \
-        mutantReturnValsMutatorKilled, \
-        mutantNegateConditionalsMutator, \
-        mutantNegateConditionalsMutatorKilled, \
-        mutantVoidMethodCallMutator, \
-        mutantVoidMethodCallMutatorKilled, \
-        mutantConditionalsBoundaryMutator, \
-        mutantConditionalsBoundaryMutatorKilled, \
-        mutantIncrementsMutator, \
-        mutantIncrementsMutatorKilled, \
-        mutantMathMutator, \
-        mutantMathMutatorKilled
+               totalMutantsKilled, \
+               mutantReturnValsMutator, \
+               mutantReturnValsMutatorKilled, \
+               mutantNegateConditionalsMutator, \
+               mutantNegateConditionalsMutatorKilled, \
+               mutantVoidMethodCallMutator, \
+               mutantVoidMethodCallMutatorKilled, \
+               mutantConditionalsBoundaryMutator, \
+               mutantConditionalsBoundaryMutatorKilled, \
+               mutantIncrementsMutator, \
+               mutantIncrementsMutatorKilled, \
+               mutantMathMutator, \
+               mutantMathMutatorKilled

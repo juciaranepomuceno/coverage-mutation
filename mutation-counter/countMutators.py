@@ -1,5 +1,8 @@
 import glob
 
+import getNumbers
+
+
 class CountMutators():
 
     def parse_file(self, path):
@@ -20,7 +23,7 @@ class CountMutators():
 
         files = glob.glob(path)
 
-        for i,file in enumerate(files):
+        for i, file in enumerate(files):
             with open(files[i]) as fd:
                 print(files[i])
                 for line in fd:
@@ -51,12 +54,11 @@ class CountMutators():
 
                     totalMutants += 1
                     totalMutantsKilled += line.count('KILLED')
-            print("total: %d" %totalMutants)
-            print("total killed: %d" %totalMutantsKilled)
+            print("total: %d" % totalMutants)
+            print("total killed: %d" % totalMutantsKilled)
 
             fd.close()
-
-
+            getNumbers().geMutation()
 
         return totalMutants, \
                totalMutantsKilled, \
@@ -72,4 +74,3 @@ class CountMutators():
                mutantIncrementsMutatorKilled, \
                mutantMathMutator, \
                mutantMathMutatorKilled
-

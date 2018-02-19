@@ -1,6 +1,6 @@
 import glob
 
-import getNumbers
+import updateSheet
 
 
 class CountMutators():
@@ -20,6 +20,7 @@ class CountMutators():
         mutantIncrementsMutatorKilled = 0
         mutantMathMutator = 0
         mutantMathMutatorKilled = 0
+        layer =1
 
         files = glob.glob(path)
 
@@ -58,7 +59,22 @@ class CountMutators():
             print("total killed: %d" % totalMutantsKilled)
 
             fd.close()
-            getNumbers().geMutation()
+
+            updateSheet.updateSheetMutation(layer, totalMutants, \
+                                            totalMutantsKilled, \
+                                            mutantReturnValsMutator, \
+                                            mutantReturnValsMutatorKilled, \
+                                            mutantNegateConditionalsMutator, \
+                                            mutantNegateConditionalsMutatorKilled, \
+                                            mutantVoidMethodCallMutator, \
+                                            mutantVoidMethodCallMutatorKilled, \
+                                            mutantConditionalsBoundaryMutator, \
+                                            mutantConditionalsBoundaryMutatorKiller, \
+                                            mutantIncrementsMutator, \
+                                            mutantIncrementsMutatorKilled, \
+                                            mutantMathMutator, \
+                                            mutantMathMutatorKilled)
+
 
         return totalMutants, \
                totalMutantsKilled, \

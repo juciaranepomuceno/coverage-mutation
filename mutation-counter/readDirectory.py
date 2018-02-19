@@ -25,6 +25,7 @@ class ReadDirectory():
             for name in files:
 
                 if fnmatch.fnmatch(name, pattern):
+
                     totalMutants, \
                     totalMutantsKilled, \
                     mutantReturnValsMutator, \

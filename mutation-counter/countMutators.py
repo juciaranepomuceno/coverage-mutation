@@ -15,14 +15,15 @@ class CountMutators():
         mutantVoidMethodCallMutator = 0
         mutantVoidMethodCallMutatorKilled = 0
         mutantConditionalsBoundaryMutator = 0
-        mutantConditionalsBoundaryMutatorKiller = 0
+        mutantConditionalsBoundaryMutatorKilled = 0
         mutantIncrementsMutator = 0
         mutantIncrementsMutatorKilled = 0
         mutantMathMutator = 0
         mutantMathMutatorKilled = 0
-        layer =1
+
 
         files = glob.glob(path)
+        print(path)
 
         for i, file in enumerate(files):
             with open(files[i]) as fd:
@@ -43,7 +44,7 @@ class CountMutators():
                     if 'ConditionalsBoundaryMutator' in line:
                         mutantConditionalsBoundaryMutator += 1
                         if 'KILLED' in line:
-                            mutantConditionalsBoundaryMutatorKiller += 1
+                            mutantConditionalsBoundaryMutatorKilled += 1
                     if 'IncrementsMutator' in line:
                         mutantIncrementsMutator += 1
                         if 'KILLED' in line:
@@ -60,20 +61,6 @@ class CountMutators():
 
             fd.close()
 
-            updateSheet.updateSheetMutation(layer, totalMutants, \
-                                            totalMutantsKilled, \
-                                            mutantReturnValsMutator, \
-                                            mutantReturnValsMutatorKilled, \
-                                            mutantNegateConditionalsMutator, \
-                                            mutantNegateConditionalsMutatorKilled, \
-                                            mutantVoidMethodCallMutator, \
-                                            mutantVoidMethodCallMutatorKilled, \
-                                            mutantConditionalsBoundaryMutator, \
-                                            mutantConditionalsBoundaryMutatorKiller, \
-                                            mutantIncrementsMutator, \
-                                            mutantIncrementsMutatorKilled, \
-                                            mutantMathMutator, \
-                                            mutantMathMutatorKilled)
 
 
         return totalMutants, \
@@ -85,7 +72,7 @@ class CountMutators():
                mutantVoidMethodCallMutator, \
                mutantVoidMethodCallMutatorKilled, \
                mutantConditionalsBoundaryMutator, \
-               mutantConditionalsBoundaryMutatorKiller, \
+               mutantConditionalsBoundaryMutatorKilled, \
                mutantIncrementsMutator, \
                mutantIncrementsMutatorKilled, \
                mutantMathMutator, \

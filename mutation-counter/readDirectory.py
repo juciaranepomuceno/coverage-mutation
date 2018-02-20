@@ -1,11 +1,12 @@
 import fnmatch
 import os
-
-import reportGenetrator
+import countMutators
+import updateSheet
 
 
 class ReadDirectory():
-    def find(self, pattern, path):
+    def findMutationReport(self, pattern, path):
+
         all_totalMutants = 0
         all_totalMutantsKilled = 0
         all_mutantReturnValsMutator = 0
@@ -20,12 +21,11 @@ class ReadDirectory():
         all_mutantIncrementsMutatorKilled = 0
         all_mutantMathMutator = 0
         all_mutantMathMutatorKilled = 0
+        layer = 1
 
         for root, dirs, files in os.walk(path):
             for name in files:
-
                 if fnmatch.fnmatch(name, pattern):
-
                     totalMutants, \
                     totalMutantsKilled, \
                     mutantReturnValsMutator, \
@@ -39,8 +39,24 @@ class ReadDirectory():
                     mutantIncrementsMutator, \
                     mutantIncrementsMutatorKilled, \
                     mutantMathMutator, \
-                        # mutantMathMutatorKilled = reportGenetrator.GenerateReport().write_report_xls(root)
-                    mutantMathMutatorKilled = reportGenetrator.GenerateReport().write_report_xls(root)
+                    mutantMathMutatorKilled = countMutators.CountMutators().parse_file(root+"\mutations.csv")
+
+                    updateSheet.updateSheetMutation(layer, totalMutants, \
+                                                    totalMutantsKilled, \
+                                                    mutantReturnValsMutator, \
+                                                    mutantReturnValsMutatorKilled, \
+                                                    mutantNegateConditionalsMutator, \
+                                                    mutantNegateConditionalsMutatorKilled, \
+                                                    mutantVoidMethodCallMutator, \
+                                                    mutantVoidMethodCallMutatorKilled, \
+                                                    mutantConditionalsBoundaryMutator, \
+                                                    mutantConditionalsBoundaryMutatorKilled, \
+                                                    mutantIncrementsMutator, \
+                                                    mutantIncrementsMutatorKilled, \
+                                                    mutantMathMutator, \
+                                                    mutantMathMutatorKilled)
+
+
 
                     all_totalMutants += int(totalMutants)
                     all_totalMutantsKilled += int(totalMutantsKilled)
@@ -57,5 +73,7 @@ class ReadDirectory():
                     all_mutantMathMutator += int(mutantMathMutator)
                     all_mutantMathMutatorKilled += int(mutantMathMutatorKilled)
 
-        print("\n\nmutations killed [module]: %s | mutations killed [module]: %s "
+                    layer+=1
+
+        print("\n\nmutations killed [module]: %s | mutations total [module]: %s "
               % (all_totalMutantsKilled, all_totalMutants))

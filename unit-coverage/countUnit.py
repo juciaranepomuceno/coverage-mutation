@@ -1,8 +1,10 @@
 import fnmatch
 import os
-import parseUnitReport
+
 import parseLayerName
+import parseUnitReport
 import updateSheet
+
 
 class CountUnit():
 
@@ -26,15 +28,12 @@ class CountUnit():
                     total_branch_covered += int(branch_covered)
                     total_branch_total += int(branch_total)
 
-                    parseLayerName.parsePath(root,layerNumber)
+                    parseLayerName.parsePath(root, layerNumber)
                     updateSheet.updateSheetUnit(layerNumber,
-                                                lines_covered,lines_total,
+                                                lines_covered, lines_total,
                                                 branch_covered, branch_total)
-                    layerNumber+=1
-
+                    layerNumber += 1
 
         print("\n\nlines covered [module]: %s | lines total[module]: %s "
               "\nbranches covered[module]: %s | branches total[module]: %s"
               % (total_lines_covered, total_lines_total, total_branch_covered, total_branch_total))
-
-

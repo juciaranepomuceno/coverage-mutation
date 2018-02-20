@@ -17,7 +17,6 @@ class CountUnit():
         layerNumber = 1
 
         for root, dirs, files in os.walk(path):
-            # print(root)
             for name in files:
                 if fnmatch.fnmatch(name, pattern):
                     print(root)

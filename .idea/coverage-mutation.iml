@@ -2,14 +2,16 @@
 <module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Python" name="Python">
-      <configuration sdkName="Python 3.6" />
+      <configuration sdkName="Python 3.6 (venv1)" />
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+  <component name="NewModuleRootManager">
+    <output url="file:///production/coverage-mutation" />
+    <output-test url="file:///test/coverage-mutation" />
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.6 (venv1)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Python 3.6 interpreter library" level="application" />
+    <orderEntry type="library" exported="" name="Python 3.6 (venv1) interpreter library" level="application" />
   </component>
 </module>

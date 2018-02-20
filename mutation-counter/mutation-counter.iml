@@ -8,7 +8,6 @@
     <orderEntry type="module" module-name="connect-googledrive" exported="" />
     <orderEntry type="module" module-name="common" />
     <orderEntry type="module" module-name="mutation-inspec" />
-    <orderEntry type="module" module-name="search-reports" />
     <orderEntry type="module" module-name="unit-coverage" />
   </component>
 </module>

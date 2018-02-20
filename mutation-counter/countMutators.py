@@ -5,7 +5,7 @@ import updateSheet
 
 class CountMutators():
 
-    def parse_file(self, path):
+    def countMutatorsByType(self, path):
         totalMutants = 0
         totalMutantsKilled = 0
         mutantReturnValsMutator = 0

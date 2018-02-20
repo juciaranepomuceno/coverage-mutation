@@ -6,7 +6,6 @@ def parsePath(root,layerNumber):
     layer = parsedLayer[1]
 
     print(layer)
-    #updateSheet.updateSheetMutation(layer)
     updateSheet.updateLayersName(layer,layerNumber)
 
     

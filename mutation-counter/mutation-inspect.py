@@ -1,9 +1,9 @@
 import os
 
-import readDirectory
+import findMutationReport
 
 path = input("Project path:")
-dir = readDirectory.ReadDirectory()
+dir = findMutationReport.ReadDirectory()
 if os.path.exists(path):
     dir.findMutationReport('mutations.csv', path)
 else:

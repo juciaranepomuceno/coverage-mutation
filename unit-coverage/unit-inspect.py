@@ -1,10 +1,13 @@
 import os
-
 import countUnit
 
-path = input("Project path:")
-dir = countUnit.CountUnit()
+module = input("Module: ")
+path = "C:/dev/repository/"+module
+
+dirUnit= countUnit.CountUnit()
+
 if os.path.exists(path):
-    dir.findUnitReport('frame-summary.html', path)
+    dirUnit.findUnitReport('frame-summary.html',path)
+
 else:
     print("Please verify the path...")

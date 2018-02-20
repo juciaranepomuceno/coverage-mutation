@@ -22,7 +22,7 @@ def updateSheetMutation(layer, totalMutants, \
                         mutantVoidMethodCallMutator, \
                         mutantVoidMethodCallMutatorKilled, \
                         mutantConditionalsBoundaryMutator, \
-                        mutantConditionalsBoundaryMutatorKiller, \
+                        mutantConditionalsBoundaryMutatorKilled, \
                         mutantIncrementsMutator, \
                         mutantIncrementsMutatorKilled, \
                         mutantMathMutator, \
@@ -34,7 +34,7 @@ def updateSheetMutation(layer, totalMutants, \
                       [mutantReturnValsMutator, mutantReturnValsMutatorKilled],
                       [mutantNegateConditionalsMutator, mutantNegateConditionalsMutatorKilled],
                       [mutantVoidMethodCallMutator, mutantVoidMethodCallMutatorKilled],
-                      [mutantConditionalsBoundaryMutator, mutantConditionalsBoundaryMutatorKiller],
+                      [mutantConditionalsBoundaryMutator, mutantConditionalsBoundaryMutatorKilled],
                       [mutantIncrementsMutator, mutantIncrementsMutatorKilled],
                       [mutantMathMutator, mutantMathMutatorKilled],
                       ]

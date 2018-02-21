@@ -5,20 +5,14 @@ import dataMap
 
 month = 'Oct'
 
-def updateSheetMutation(layer, totalMutants, \
-                        totalMutantsKilled, \
-                        mutantReturnValsMutator, \
-                        mutantReturnValsMutatorKilled, \
-                        mutantNegateConditionalsMutator, \
-                        mutantNegateConditionalsMutatorKilled, \
-                        mutantVoidMethodCallMutator, \
-                        mutantVoidMethodCallMutatorKilled, \
-                        mutantConditionalsBoundaryMutator, \
-                        mutantConditionalsBoundaryMutatorKilled, \
-                        mutantIncrementsMutator, \
-                        mutantIncrementsMutatorKilled, \
-                        mutantMathMutator, \
-                        mutantMathMutatorKilled):
+
+def updateSheetMutation(layer, totalMutants, totalMutantsKilled,
+                        mutantReturnValsMutator, mutantReturnValsMutatorKilled,
+                        mutantNegateConditionalsMutator, mutantNegateConditionalsMutatorKilled,
+                        mutantVoidMethodCallMutator, mutantVoidMethodCallMutatorKilled,
+                        mutantConditionalsBoundaryMutator, mutantConditionalsBoundaryMutatorKilled,
+                        mutantIncrementsMutator, mutantIncrementsMutatorKilled,
+                        mutantMathMutator, mutantMathMutatorKilled):
 
     valuesMutation = [[totalMutants, totalMutantsKilled],
                       [mutantReturnValsMutator, mutantReturnValsMutatorKilled],
@@ -29,22 +23,18 @@ def updateSheetMutation(layer, totalMutants, \
                       [mutantMathMutator, mutantMathMutatorKilled],
                       ]
 
-    bodyMutation = {
-        'values': valuesMutation
-    }
+    bodyMutation = {'values': valuesMutation}
 
     rangeMutation = dataMap.getRangeMutation(layer, month)
     connectSpreadSheet.requestUpdate(rangeMutation, bodyMutation)
 
 
 def updateSheetUnit(layer,
-                    total_lines_covered,total_lines_total,
+                    total_lines_covered, total_lines_total,
                     total_branch_covered, total_branch_total):
-
-    valuesUnit = [[total_lines_covered, total_lines_total],[total_branch_covered, total_branch_total]]
-    bodyUnit = {
-        'values': valuesUnit
-    }
+    valuesUnit = [[total_lines_covered, total_lines_total],
+                  [total_branch_covered, total_branch_total]]
+    bodyUnit = {'values': valuesUnit}
 
     rangeUnit = dataMap.getRangeUnit(layer, month)
     connectSpreadSheet.requestUpdate(rangeUnit, bodyUnit)
@@ -53,12 +43,7 @@ def updateSheetUnit(layer,
 def updateLayersName(layerName, layerID):
 
     valuesName = [[layerName]]
-    bodyName = {
-    'values': valuesName
-    }
+    bodyName = {'values': valuesName}
+
     rangeName = dataMap.getRangeName(layerID, month)
     connectSpreadSheet.requestUpdate(rangeName, bodyName)
-
-
-if __name__ == '__main__':
-    updateLayersName("teste", 1)

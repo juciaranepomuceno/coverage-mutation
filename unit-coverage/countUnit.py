@@ -20,7 +20,9 @@ class CountUnit():
             for name in files:
                 if fnmatch.fnmatch(name, pattern):
                     print(root)
-                    lines_covered, lines_total, branch_covered, branch_total = parseUnitReport.read_htlm(root)
+                    lines_covered, lines_total, \
+                    branch_covered, branch_total \
+                        = parseUnitReport.read_htlm(root)
 
                     total_lines_covered += int(lines_covered)
                     total_lines_total += int(lines_total)
@@ -35,5 +37,5 @@ class CountUnit():
 
         print("\n\nlines covered [module]: %s | lines total[module]: %s "
               "\nbranches covered[module]: %s | branches total[module]: %s"
-              % (total_lines_covered, total_lines_total, total_branch_covered, total_branch_total))
-
+              % (total_lines_covered, total_lines_total,
+                 total_branch_covered, total_branch_total))

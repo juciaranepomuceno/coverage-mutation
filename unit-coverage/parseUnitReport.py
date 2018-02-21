@@ -43,7 +43,8 @@ def read_htlm(url):
         branch_covered = str(get_branch[0])
         branch_total = str(get_branch[1])
 
-    print("lines covered: %s | lines total: %s \nbranches covered: %s | branches total: %s"
+    print("lines covered: %s | lines total: %s "
+          "\nbranches covered: %s | branches total: %s"
           % (lines_covered, lines_total, branch_covered, branch_total))
 
     return (lines_covered, lines_total, branch_covered, branch_total)

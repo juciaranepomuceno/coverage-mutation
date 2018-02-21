@@ -17,45 +17,35 @@ def getSheetId(module):
         'pim-api': '1fgPn7fpRE0VfVlgi9aADwdObItXCfvcziiranQLlxiM',
         'pricing-engine': '1rLFLUwgxeBFZ-T_POZl6jdiuoNRedaZ_bKe9b9BM1WA',
         'pricing-engine-api': '1fHKeUXv11Rr24gvnvZOCQH2I8I1uuCQeKTP2dJQ-B94',
-        'pricing-management': '1nSv2AtHVZFVDx6jdVoAbMPrB5t3qNujENe0HG1eb5to',
-    }
+        'pricing-management': '1nSv2AtHVZFVDx6jdVoAbMPrB5t3qNujENe0HG1eb5to'}
     return sheetIdDictionary[module]
 
-def getRangeName(layer,month):
 
-    rangeName = {    1:month+'!L1',
-                     2:month+'!N1',
-                     3:month+'!P1',
-                     4:month+'!R1',
-                     5:month+'!T1'}
+def getRangeName(layer, month):
+    rangeName = {1: month + '!L1',
+                 2: month + '!N1',
+                 3: month + '!P1',
+                 4: month + '!R1',
+                 5: month + '!T1'}
 
     return rangeName[layer]
 
-def getRangeName(layer,month):
 
-    rangeName = {    1:month+'!L1',
-                     2:month+'!N1',
-                     3:month+'!P1',
-                     4:month+'!R1',
-                     5:month+'!T1'}
-    return rangeName[layer]
-
-def getRangeUnit(layer,month):
-
-    rangeUnit = {    1:month+'!L3:M4',
-                     2:month+'!N3:O4',
-                     3:month+'!P3:Q4',
-                     4:month+'!R3:S4',
-                     5:month+'!T3:U4'}
+def getRangeUnit(layer, month):
+    rangeUnit = {1: month + '!L3:M4',
+                 2: month + '!N3:O4',
+                 3: month + '!P3:Q4',
+                 4: month + '!R3:S4',
+                 5: month + '!T3:U4'}
     return rangeUnit[layer]
 
-def getRangeMutation(layer,month):
 
-    rangeMutation = {1:month+'!L8:M14',
-                     2:month+'!N8:O14',
-                     3:month+'!P8:Q14',
-                     4:month+'!R8:S14',
-                     5:month+'!T8:U14'}
+def getRangeMutation(layer, month):
+    rangeMutation = {1: month + '!L8:M14',
+                     2: month + '!N8:O14',
+                     3: month + '!P8:Q14',
+                     4: month + '!R8:S14',
+                     5: month + '!T8:U14'}
 
     return rangeMutation[layer]
 

@@ -111,5 +111,6 @@ ENV/
 unit-coverage/*.iml
 mutation-coverage/*.iml
 common/*.iml
+common/*.bat
 connect-googledrive/*.iml
 connect-googledrive/*.json

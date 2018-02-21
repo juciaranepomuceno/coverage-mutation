@@ -1,5 +1,6 @@
 import fnmatch
 import os
+
 import parseLayerName
 import parseUnitReport
 import updateSheet
@@ -35,3 +36,6 @@ class CountUnit():
         print("\n\nlines covered [module]: %s | lines total[module]: %s "
               "\nbranches covered[module]: %s | branches total[module]: %s"
               % (total_lines_covered, total_lines_total, total_branch_covered, total_branch_total))
+
+    def setInfoUnit(month):
+        CountUnit.findUnitReport()

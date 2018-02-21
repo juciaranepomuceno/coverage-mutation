@@ -105,5 +105,10 @@ ENV/
 /.DS_Store
 /.settings/
 
+# intellij
 *.iml
 .idea/
+unit-coverage/*.iml
+mutation-counter/*.iml
+common/*.iml
+connect-googledrive/*iml

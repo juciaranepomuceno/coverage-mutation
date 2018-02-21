@@ -1,6 +1,5 @@
 import fnmatch
 import os
-
 import parseLayerName
 import parseUnitReport
 import updateSheet

@@ -13,6 +13,7 @@ def openSheet():
                           discoveryServiceUrl=discoveryUrl)
     return service
 
+
 def updateSheetMutation(layer, totalMutants, \
                         totalMutantsKilled, \
                         mutantReturnValsMutator, \
@@ -43,16 +44,11 @@ def updateSheetMutation(layer, totalMutants, \
         'values': valuesMutation
     }
 
-    if layer == 1:
-        rangeMutation = 'Jan!L8:M14'
-    if layer == 2:
-        rangeMutation = 'Jan!N8:O14'
-    if layer == 3:
-        rangeMutation = 'Jan!P8:Q14'
-    if layer == 4:
-        rangeMutation = 'Jan!R8:S14'
-    if layer == 5:
-        rangeMutation = 'Jan!T8:U14'
+    rangeMutation = {1:'Jan!L8:M14',
+                     2:'Jan!N8:O14',
+                     3:'Jan!P8:Q14',
+                     4:'Jan!R8:S14',
+                     5:'Jan!T8:U14'}
 
     service.spreadsheets().values().update(
         spreadsheetId='1MYosSG79lF_hgVo4GbsJ9Uzo8RoNT5DA4ZefjVequ4c', range=rangeMutation,
@@ -70,17 +66,11 @@ def updateSheetUnit(layer,
         'values': valuesUnit
     }
 
-    if layer == 1:
-        rangeUnit = 'Jan!L3:M4'
-    if layer == 2:
-        rangeUnit = 'Jan!N3:O4'
-    if layer == 3:
-        rangeUnit = 'Jan!P3:Q4'
-    if layer == 4:
-        rangeUnit = 'Jan!R3:S4'
-    if layer == 5:
-        rangeUnit = 'Jan!T3:U4'
-
+    rangeUnit = {    1:'Jan!L3:M4',
+                     2:'Jan!N3:O4',
+                     3:'Jan!P3:Q4',
+                     4:'Jan!R3:S4',
+                     5:'Jan!T3:U4'}
 
     service.spreadsheets().values().update(
         spreadsheetId='1MYosSG79lF_hgVo4GbsJ9Uzo8RoNT5DA4ZefjVequ4c', range=rangeUnit,
@@ -95,20 +85,15 @@ def updateLayersName(layerName, layer):
     'values': valuesName
     }
 
-    if layer == 1:
-        rangeName = 'Jan!L1'
-    if layer == 2:
-        rangeName = 'Jan!N1'
-    if layer == 3:
-        rangeName = 'Jan!P1'
-    if layer == 4:
-        rangeName = 'Jan!R1'
-    if layer == 5:
-        rangeName = 'Jan!T1'
+    rangeName = {    1:'Jan!L1',
+                     2:'Jan!N1',
+                     3:'Jan!P1',
+                     4:'Jan!R1',
+                     5:'Jan!T1'}
+
 
     service.spreadsheets().values().update(
-        spreadsheetId='1MYosSG79lF_hgVo4GbsJ9Uzo8RoNT5DA4ZefjVequ4c', range=rangeName,
+        spreadsheetId='1MYosSG79lF_hgVo4GbsJ9Uzo8RoNT5DA4ZefjVequ4c', range=rangeName[layer],
         valueInputOption='USER_ENTERED', body=bodyName).execute()
 
-if __name__ == '__main__':
-    updateLayersName("teste",1)
+

@@ -5,7 +5,7 @@ import findMutationReport
 
 
 module = input("Module: ")
-path = "C:/dev/repository/"+module
+path = "C:/dev/repository/"+module+"/layers"
 
 print (path)
 dirUnit= countUnit.CountUnit()

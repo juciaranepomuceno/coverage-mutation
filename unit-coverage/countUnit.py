@@ -8,7 +8,7 @@ import updateSheet
 
 class CountUnit():
 
-    def findUnitReport(self, pattern, path):
+    def findUnitReport(self, pattern, path, month):
 
         total_lines_covered = 0
         total_lines_total = 0
@@ -29,8 +29,8 @@ class CountUnit():
                     total_branch_covered += int(branch_covered)
                     total_branch_total += int(branch_total)
 
-                    parseLayerName.parsePath(root, layerNumber)
-                    updateSheet.updateSheetUnit(layerNumber,
+                    parseLayerName.parsePath(root, layerNumber, month)
+                    updateSheet.updateSheetUnit(month, layerNumber,
                                                 lines_covered, lines_total,
                                                 branch_covered, branch_total)
                     layerNumber += 1

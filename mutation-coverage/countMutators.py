@@ -5,7 +5,7 @@ import updateSheet
 
 class CountMutators():
 
-    def countMutatorsByType(self, path, layer):
+    def countMutatorsByType(self, path, layer, month):
         totalMutants = 0
         totalMutantsKilled = 0
         mutantReturnValsMutator = 0
@@ -60,7 +60,7 @@ class CountMutators():
 
             fd.close()
 
-        updateSheet.updateSheetMutation(layer, totalMutants, totalMutantsKilled,
+        updateSheet.updateSheetMutation(month, layer, totalMutants, totalMutantsKilled,
                                         mutantReturnValsMutator, mutantReturnValsMutatorKilled,
                                         mutantNegateConditionalsMutator, mutantNegateConditionalsMutatorKilled,
                                         mutantVoidMethodCallMutator, mutantVoidMethodCallMutatorKilled,

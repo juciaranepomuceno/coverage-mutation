@@ -109,6 +109,7 @@ ENV/
 *.iml
 .idea/
 unit-coverage/*.iml
-mutation-counter/*.iml
+mutation-coverage/*.iml
 common/*.iml
-connect-googledrive/*iml
+connect-googledrive/*.iml
+connect-googledrive/*.json

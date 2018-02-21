@@ -1,7 +1,8 @@
 import os
+
 from oauth2client import client
-from oauth2client.file import Storage
 from oauth2client import tools
+from oauth2client.file import Storage
 
 try:
     import argparse
@@ -14,6 +15,7 @@ SCOPES = 'https://www.googleapis.com/auth/spreadsheets'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Coverage Analysis'
 
+
 def get_credentials():
 
     home_dir = os.path.expanduser('~')
@@ -21,7 +23,7 @@ def get_credentials():
     if not os.path.exists(credential_dir):
         os.makedirs(credential_dir)
     credential_path = os.path.join(credential_dir,
-                                   'sheets.googleapis.com-coverage-analysis.json')
+                                   'sheets.googleapis.com-coverage-analysis-new.json')
 
     store = Storage(credential_path)
     credentials = store.get()

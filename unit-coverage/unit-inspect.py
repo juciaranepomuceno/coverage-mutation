@@ -1,11 +1,11 @@
 import os
+
 import countUnit
+import messageStart
 
-print ("**************** COVERAGE ANALYSIS SUPPORTE **************************** \n"
-       "*Please, be sure that your module is in C:/dev/repository/[your module]* \n"
-       "************************************************************************ \n")
-
+messageStart.printMessage()
 module = input("Module: ")
+
 path = "C:/dev/repository/"+module+"/layers"
 
 dirUnit= countUnit.CountUnit()

@@ -1,12 +1,10 @@
 import os
+
 import countUnit
 import findMutationReport
-import dataMap
+import messageStart
 
-
-print("****************COVERAGE ANALYSIS SUPPORTE **************************** \n"
-      "*Please, be sure that your module is in C:/dev/repository/[your module]* \n"
-      "************************************************************************ \n")
+messageStart.printMessage()
 
 module = input("Module: ")
 month = input("Month: ")

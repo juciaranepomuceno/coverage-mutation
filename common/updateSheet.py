@@ -3,6 +3,7 @@ from __future__ import print_function
 import connectSpreadSheet
 import dataMap
 
+month = 'Oct'
 
 def updateSheetMutation(layer, totalMutants, \
                         totalMutantsKilled, \
@@ -32,7 +33,7 @@ def updateSheetMutation(layer, totalMutants, \
         'values': valuesMutation
     }
 
-    rangeMutation = dataMap.getRangeMutation(layer, 'Feb')
+    rangeMutation = dataMap.getRangeMutation(layer, month)
     connectSpreadSheet.requestUpdate(rangeMutation, bodyMutation)
 
 
@@ -45,7 +46,7 @@ def updateSheetUnit(layer,
         'values': valuesUnit
     }
 
-    rangeUnit = dataMap.getRangeUnit(layer, 'Feb')
+    rangeUnit = dataMap.getRangeUnit(layer, month)
     connectSpreadSheet.requestUpdate(rangeUnit, bodyUnit)
 
 
@@ -55,7 +56,7 @@ def updateLayersName(layerName, layerID):
     bodyName = {
     'values': valuesName
     }
-    rangeName = dataMap.getRangeName(layerID, 'Mar')
+    rangeName = dataMap.getRangeName(layerID, month)
     connectSpreadSheet.requestUpdate(rangeName, bodyName)
 
 

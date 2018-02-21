@@ -1,9 +1,11 @@
 import glob
 
+import updateSheet
+
 
 class CountMutators():
 
-    def countMutatorsByType(self, path):
+    def countMutatorsByType(self, path, layer):
         totalMutants = 0
         totalMutantsKilled = 0
         mutantReturnValsMutator = 0
@@ -19,38 +21,34 @@ class CountMutators():
         mutantMathMutator = 0
         mutantMathMutatorKilled = 0
 
-
         files = glob.glob(path)
-        print(path)
+
+        mutatorType = CountMutators()
 
         for i, file in enumerate(files):
             with open(files[i]) as fd:
                 print(files[i])
                 for line in fd:
-                    if 'ReturnValsMutator' in line:
-                        mutantReturnValsMutator += 1
-                        if 'KILLED' in line:
-                            mutantReturnValsMutatorKilled += 1
-                    if 'NegateConditionalsMutator' in line:
-                        mutantNegateConditionalsMutator += 1
-                        if 'KILLED' in line:
-                            mutantNegateConditionalsMutatorKilled += 1
-                    if 'VoidMethodCallMutator' in line:
-                        mutantVoidMethodCallMutator += 1
-                        if 'KILLED' in line:
-                            mutantVoidMethodCallMutatorKilled += 1
-                    if 'ConditionalsBoundaryMutator' in line:
-                        mutantConditionalsBoundaryMutator += 1
-                        if 'KILLED' in line:
-                            mutantConditionalsBoundaryMutatorKilled += 1
-                    if 'IncrementsMutator' in line:
-                        mutantIncrementsMutator += 1
-                        if 'KILLED' in line:
-                            mutantIncrementsMutatorKilled += 1
-                    if 'MathMutator' in line:
-                        mutantMathMutator += 1
-                        if 'KILLED' in line:
-                            mutantMathMutatorKilled += 1
+                    mutantReturnValsMutator, mutantReturnValsMutatorKilled \
+                        = mutatorType.isReturnValsMutator(line, mutantReturnValsMutator, mutantReturnValsMutatorKilled)
+
+                    mutantNegateConditionalsMutator, mutantNegateConditionalsMutatorKilled \
+                        = mutatorType.isNegateConditionalsMutator(line, mutantNegateConditionalsMutator,
+                                                                  mutantNegateConditionalsMutatorKilled)
+
+                    mutantVoidMethodCallMutator, mutantVoidMethodCallMutatorKilled \
+                        = mutatorType.isVoidMethodCallMutator(line, mutantVoidMethodCallMutator,
+                                                              mutantVoidMethodCallMutatorKilled)
+
+                    mutantConditionalsBoundaryMutator, mutantConditionalsBoundaryMutatorKilled \
+                        = mutatorType.isConditionalsBoundaryMutator(line, mutantConditionalsBoundaryMutator,
+                                                                    mutantConditionalsBoundaryMutatorKilled)
+
+                    mutantIncrementsMutator, mutantIncrementsMutatorKilled \
+                        = mutatorType.isIncrementsMutator(line, mutantIncrementsMutator, mutantIncrementsMutatorKilled)
+
+                    mutantMathMutator, mutantMathMutatorKilled = \
+                        mutatorType.isMathMutator(line, mutantMathMutator, mutantMathMutatorKilled)
 
                     totalMutants += 1
                     totalMutantsKilled += line.count('KILLED')
@@ -59,19 +57,58 @@ class CountMutators():
 
             fd.close()
 
+        updateSheet.updateSheetMutation(layer, totalMutants, \
+                                        totalMutantsKilled, \
+                                        mutantReturnValsMutator, \
+                                        mutantReturnValsMutatorKilled, \
+                                        mutantNegateConditionalsMutator, \
+                                        mutantNegateConditionalsMutatorKilled, \
+                                        mutantVoidMethodCallMutator, \
+                                        mutantVoidMethodCallMutatorKilled, \
+                                        mutantConditionalsBoundaryMutator, \
+                                        mutantConditionalsBoundaryMutatorKilled, \
+                                        mutantIncrementsMutator, \
+                                        mutantIncrementsMutatorKilled, \
+                                        mutantMathMutator, \
+                                        mutantMathMutatorKilled)
 
+    def isReturnValsMutator(self, line, mutator, mutantKilled):
+        if 'ReturnValsMutator' in line:
+            mutator += 1
+            mutantKilled = CountMutators.isKilled(line, mutantKilled)
+        return mutator, mutantKilled
 
-        return totalMutants, \
-               totalMutantsKilled, \
-               mutantReturnValsMutator, \
-               mutantReturnValsMutatorKilled, \
-               mutantNegateConditionalsMutator, \
-               mutantNegateConditionalsMutatorKilled, \
-               mutantVoidMethodCallMutator, \
-               mutantVoidMethodCallMutatorKilled, \
-               mutantConditionalsBoundaryMutator, \
-               mutantConditionalsBoundaryMutatorKilled, \
-               mutantIncrementsMutator, \
-               mutantIncrementsMutatorKilled, \
-               mutantMathMutator, \
-               mutantMathMutatorKilled
+    def isNegateConditionalsMutator(self, line, mutator, mutantKilled):
+        if 'NegateConditionalsMutator' in line:
+            mutator += 1
+            mutantKilled = CountMutators.isKilled(line, mutantKilled)
+        return mutator, mutantKilled
+
+    def isVoidMethodCallMutator(self, line, mutator, mutantKilled):
+        if 'VoidMethodCallMutator' in line:
+            mutator += 1
+            mutantKilled = CountMutators.isKilled(line, mutantKilled)
+        return mutator, mutantKilled
+
+    def isConditionalsBoundaryMutator(self, line, mutator, mutantKilled):
+        if 'ConditionalsBoundaryMutator' in line:
+            mutator += 1
+            mutantKilled = CountMutators.isKilled(line, mutantKilled)
+        return mutator, mutantKilled
+
+    def isIncrementsMutator(self, line, mutator, mutantKilled):
+        if 'IncrementsMutator' in line:
+            mutator += 1
+            mutantKilled = CountMutators.isKilled(line, mutantKilled)
+        return mutator, mutantKilled
+
+    def isMathMutator(self, line, mutator, mutantKilled):
+        if 'MathMutator' in line:
+            mutator += 1
+            mutantKilled = CountMutators.isKilled(line, mutantKilled)
+        return mutator, mutantKilled
+
+    def isKilled(line, mutator):
+        if 'KILLED' in line:
+            mutator += 1
+        return mutator

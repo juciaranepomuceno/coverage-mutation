@@ -1,6 +1,8 @@
+import updateSheet
+
 class FindLayersName:
 
-    def parsePath(root):
+    def parsePath(root, month, layerNumber):
         parsedPath = root.split('/')
         parsedLayer = (parsedPath[3]).split('\\')
 
@@ -8,4 +10,4 @@ class FindLayersName:
             if item == 'target':
                 layer = parsedLayer[pos - 1]
 
-        # updateSheet.updateLayersName(month, layer, layerNumber)
+        updateSheet.updateLayersName(month, layer, layerNumber)

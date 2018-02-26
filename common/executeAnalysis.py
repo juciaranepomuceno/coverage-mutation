@@ -10,7 +10,7 @@ messageStart.printMessage()
 module = input("Insert the module: ")
 month = dataMap.getMonth(input("Insert the month <example: '01' for  for January>: "))
 
-path = "C:/dev/repository/"+module+"/layers"
+path = "C:/dev/repository/" + module
 
 dirUnit = countUnit.CountUnit()
 dirMutation = findMutationReport.FindReport()

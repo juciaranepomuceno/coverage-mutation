@@ -1,7 +1,7 @@
 import fnmatch
 import os
 
-import parseLayerName
+import findLayersName
 import parseUnitReport
 import updateSheet
 
@@ -19,7 +19,7 @@ class CountUnit():
         for root, dirs, files in os.walk(path):
             for name in files:
                 if fnmatch.fnmatch(name, pattern):
-                    print(root)
+
                     lines_covered, lines_total, \
                     branch_covered, branch_total \
                         = parseUnitReport.read_htlm(root)
@@ -29,7 +29,7 @@ class CountUnit():
                     total_branch_covered += int(branch_covered)
                     total_branch_total += int(branch_total)
 
-                    parseLayerName.parsePath(root, layerNumber, month)
+                    findLayersName.parsePath(root, layerNumber, month)
                     updateSheet.updateSheetUnit(month, layerNumber,
                                                 lines_covered, lines_total,
                                                 branch_covered, branch_total)

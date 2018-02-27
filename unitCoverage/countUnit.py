@@ -8,7 +8,7 @@ import updateSheet
 
 class CountUnit():
 
-    def findUnitReport(self, pattern, path, month):
+    def findUnitReport(self, pattern, path, month, module):
 
         total_lines_covered = 0
         total_lines_total = 0
@@ -17,23 +17,26 @@ class CountUnit():
         layerNumber = 1
 
         for root, dirs, files in os.walk(path):
-            for name in files:
-                if fnmatch.fnmatch(name, pattern):
+            if root.find("test") == -1:
+                for name in files:
+                    if fnmatch.fnmatch(name, pattern):
+                        print(root)
 
-                    lines_covered, lines_total, \
-                    branch_covered, branch_total \
-                        = parseUnitReport.read_htlm(root)
+                        lines_covered, lines_total, \
+                        branch_covered, branch_total \
+                            = parseUnitReport.read_htlm(root)
 
-                    total_lines_covered += int(lines_covered)
-                    total_lines_total += int(lines_total)
-                    total_branch_covered += int(branch_covered)
-                    total_branch_total += int(branch_total)
+                        total_lines_covered += int(lines_covered)
+                        total_lines_total += int(lines_total)
+                        total_branch_covered += int(branch_covered)
+                        total_branch_total += int(branch_total)
 
-                    findLayersName.FindLayersName.parsePath(root, layerNumber, month)
-                    updateSheet.updateSheetUnit(month, layerNumber,
-                                                lines_covered, lines_total,
-                                                branch_covered, branch_total)
-                    layerNumber += 1
+                        findLayersName.FindLayersName.parsePath(root, layerNumber, month, module)
+                        print(month)
+                        updateSheet.updateSheetUnit(month, layerNumber, module,
+                                                    lines_covered, lines_total,
+                                                    branch_covered, branch_total)
+                        layerNumber += 1
 
         print("\n\nlines covered [module]: %s | lines total[module]: %s "
               "\nbranches covered[module]: %s | branches total[module]: %s"

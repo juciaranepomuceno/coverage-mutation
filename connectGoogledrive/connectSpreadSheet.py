@@ -15,9 +15,13 @@ def openSpreadSheet():
     return service
 
 
-def requestUpdate(thisRange, thisBody):
-    thisSpreadsheetId = dataMap.getSheetId('audit-management')
+def requestUpdate(thisRange, thisBody, modulo):
+    thisSpreadsheetId = dataMap.getSheetId(modulo)
 
     openSpreadSheet().spreadsheets().values().update(
         spreadsheetId=thisSpreadsheetId, range=thisRange,
         valueInputOption='USER_ENTERED', body=thisBody).execute()
+
+
+if __name__ == "__main__":
+    openSpreadSheet()

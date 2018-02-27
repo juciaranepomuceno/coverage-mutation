@@ -32,7 +32,6 @@ class CountUnit():
                         total_branch_total += int(branch_total)
 
                         findLayersName.FindLayersName.parsePath(root, layerNumber, month, module)
-                        print(month)
                         updateSheet.updateSheetUnit(month, layerNumber, module,
                                                     lines_covered, lines_total,
                                                     branch_covered, branch_total)

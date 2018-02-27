@@ -14,7 +14,6 @@ def updateSheetMutation(month, layer, totalMutants, totalMutantsKilled,
                         mutantConditionalsBoundaryMutator, mutantConditionalsBoundaryMutatorKilled,
                         mutantIncrementsMutator, mutantIncrementsMutatorKilled,
                         mutantMathMutator, mutantMathMutatorKilled):
-
     valuesMutation = [[totalMutants, totalMutantsKilled],
                       [mutantReturnValsMutator, mutantReturnValsMutatorKilled],
                       [mutantNegateConditionalsMutator, mutantNegateConditionalsMutatorKilled],
@@ -42,7 +41,6 @@ def updateSheetUnit(month, layer,
 
 
 def updateLayersName(month, layerName, layerID):
-
     valuesName = [[layerName]]
     bodyName = {'values': valuesName}
 

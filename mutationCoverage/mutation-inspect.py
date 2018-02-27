@@ -1,14 +1,20 @@
 import os
 
+import dataMap
 import findMutationReport
 import messageStart
 
 messageStart.printMessage()
 
-path = input("Project path:")
+module = input("Insert the module: ")
+month = dataMap.getMonth(input("Insert the month <example: '01' for  for January>: "))
+path = "C:/dev/repository/" + module
 
-dir = findMutationReport.FindReport()
+dirMutation = findMutationReport.FindReport()
+
 if os.path.exists(path):
-    dir.findMutationReport('mutations.csv', path)
+
+    dirMutation.findMutationReport('mutations.csv', path, month, module)
+
 else:
-    print("Please verify the path...")
+    print("Please verify the path of your module...")

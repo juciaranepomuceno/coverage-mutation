@@ -24,6 +24,6 @@ mergeable:
       
       title:
         must_exclude:
-          regex: 'wip'
+          regex: 'juciara'
           message: 'This PR is work in progress.'
   

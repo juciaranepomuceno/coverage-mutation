@@ -21,3 +21,9 @@ mergeable:
   issues:
       # Regular expression. In this example, whenever a issues has a label with the word 'wip'
       label: 'wip|do not merge|experimental'
+      
+      title:
+        must_exclude:
+          regex: 'wip'
+          message: 'This PR is work in progress.'
+  

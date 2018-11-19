@@ -18,8 +18,6 @@ mergeable:
     # exclude any of the mergeable validation above. A comma separated list. For example, the following will exclude validations for approvals and label.
     exclude: 'approvals, label'
 
-    issues:
-      title:
-        must_include:
-          regex: '^\\(feat\\)|^\\(doc\\)|^\\(fix\\)'
-          message: 'Title must have prefixes for the following: (feat), (doc), (fix)'
+  issues:
+      # Regular expression. In this example, whenever a issues has a label with the word 'wip'
+      label: 'wip|do not merge|experimental'

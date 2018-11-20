@@ -1,0 +1,4 @@
+helpr:
+  opened: 'insert-label-for-pr-opened-here'
+  merged: 'insert-label-for-pr-merged-here'
+  rejected: 'insert-label-for-pr-rejected-here'
